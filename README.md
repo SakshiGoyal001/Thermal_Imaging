@@ -91,7 +91,7 @@ You should see a device listed at address 0x33, which indicates the MLX90640 is 
 
 ### Step 5: Create Python Script to Capture Thermal Image
 
-Write the Python Script: Create a file named `thermal_camera.py` and add the following code:
+Write the Python Script: Create a file named `ImageFeed.py` and add the following code:
 
 ```python
 import board
@@ -180,7 +180,6 @@ plt.show()
     - Open a web browser on your laptop and go to `http://<Raspberry_Pi_IP>:8888`.
 
 ### Real-Time Thermal Image Feed
-For real-time visualization of the thermal feed, use the following Python script:
 
 ```python
 import board
@@ -257,8 +256,6 @@ This project utilizes the [Adafruit CircuitPython MLX90640](https://github.com/a
 
 ### Alternative Approaches
 
-While the Adafruit library is a convenient choice, other methods are available for interfacing with the MLX90640 sensor:
-
 - **Direct I2C Communication:** You can use Python's `smbus2` library to handle direct I2C communication with the MLX90640. This method requires manual management of the I2C protocol and data processing.
   [smbus2 on GitHub](https://github.com/kplindegaard/smbus2)
 
@@ -269,6 +266,4 @@ If you prefer exploring alternative methods, you can look for other MLX90640 lib
 
 ## Additional Resources
 
-For another approach to setting up the MLX90640 thermal camera with Raspberry Pi, you can refer to this [high-resolution thermal camera guide](https://makersportal.com/blog/2020/6/8/high-resolution-thermal-camera-with-raspberry-pi-and-mlx90640) on MakersPortal. 
-
-This guide provides a detailed walkthrough for connecting and using the MLX90640 thermal camera with a Raspberry Pi, including steps for setting up the hardware and software without using a virtual environment.
+For another approach to setting up the MLX90640 thermal camera with Raspberry Pi, you can refer to this [high-resolution thermal camera guide](https://makersportal.com/blog/2020/6/8/high-resolution-thermal-camera-with-raspberry-pi-and-mlx90640) on MakersPortal. This guide provides a detailed walkthrough for connecting and using the MLX90640 thermal camera with a Raspberry Pi, including steps for setting up the hardware and software without using a virtual environment.
