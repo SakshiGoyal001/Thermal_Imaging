@@ -13,9 +13,7 @@ This project demonstrates how to use a Raspberry Pi 4B and an MLX90640 thermal c
 ## Hardware Requirements
 
 - **Raspberry Pi 4B (4GB)**
-- **MLX90640 Thermal Camera**
-  
-    The **7Semi MLX90640** thermal camera is a key component of this project, offering:
+- **7Semi MLX90640 Thermal Camera**
     
     - Wide 110° Field of View
     - 32x24 Pixel IR Sensor Array
