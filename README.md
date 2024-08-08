@@ -37,3 +37,174 @@ Open a terminal on your Raspberry Pi and run the following commands:
 ```bash
 sudo apt-get update
 sudo apt-get upgrade -y
+```
+
+### Step 2: Enable I2C on the Raspberry Pi
+Enable the I2C interface for communication with the MLX90640 sensor:
+```bash
+sudo raspi-config
+```
+
+- Select "Interfacing Options"
+- Select "I2C"
+- Enable I2C
+- Exit and reboot the Raspberry Pi:
+
+```bash
+sudo reboot
+```
+### Step 3: Install Required Libraries in a Virtual Environment
+
+Set Up a Virtual Environment:
+
+1. Install Virtual Environment Tools:
+    ```bash
+    sudo apt-get install -y python3-venv
+    ```
+
+2. Create a Virtual Environment:
+    ```bash
+    python3 -m venv myenv
+    ```
+
+3. Activate the Virtual Environment:
+    ```bash
+    source myenv/bin/activate
+    ```
+
+4. Install I2C Tools and Python Packages:
+    ```bash
+    pip install smbus2 numpy matplotlib adafruit-circuitpython-mlx90640
+    ```
+
+### Step 4: Verify I2C Connection
+
+Check I2C Devices:
+
+```bash
+sudo i2cdetect -y 1
+ ```
+You should see a device listed at address 0x33, which indicates the MLX90640 is connected correctly.
+![image](https://github.com/user-attachments/assets/b484440c-ef47-4726-9b98-bff4520cf5f2)
+
+### Step 5: Create Python Script to Capture Thermal Image
+
+Write the Python Script: Create a file named `thermal_camera.py` and add the following code:
+
+```python
+import board
+import busio
+import adafruit_mlx90640
+import numpy as np
+import matplotlib.pyplot as plt
+
+i2c = busio.I2C(board.SCL, board.SDA, frequency=400000)
+mlx = adafruit_mlx90640.MLX90640(i2c)
+
+mlx.refresh_rate = adafruit_mlx90640.RefreshRate.REFRESH_2_HZ
+
+def capture_thermal_image():
+    frame = np.zeros((24*32,))
+    mlx.getFrame(frame)
+    return frame.reshape(24, 32)
+
+thermal_image = capture_thermal_image()
+plt.imshow(thermal_image, cmap='inferno')
+plt.colorbar()
+plt.show()
+ ```
+### Step 6: Display Results on Laptop
+
+#### Option 1: Remote Desktop (VNC)
+
+1. Install VNC Server on Raspberry Pi:
+    ```bash
+    sudo apt-get install realvnc-vnc-server
+    sudo systemctl enable vncserver-x11-serviced.service
+    sudo systemctl start vncserver-x11-serviced.service
+    ```
+
+2. Enable VNC in Raspberry Pi Configuration:
+    ```bash
+    sudo raspi-config
+    ```
+
+    - Select "Interfacing Options"
+    - Select "VNC"
+    - Enable VNC
+
+3. Install VNC Viewer on Laptop:
+    Download and install VNC Viewer from [here](https://www.realvnc.com/en/connect/download/viewer/).
+
+4. Connect to Raspberry Pi:
+    - Open VNC Viewer on your laptop.
+    - Connect to the Raspberry Pi’s IP address.
+
+#### Option 2: SSH with X Forwarding
+
+1. Enable SSH on Raspberry Pi:
+    ```bash
+    sudo raspi-config
+    ```
+
+    - Select "Interfacing Options"
+    - Select "SSH"
+    - Enable SSH
+
+2. Connect from Your Laptop:
+    - Open a terminal on your laptop (Linux or macOS) and use SSH with X forwarding:
+      ```bash
+      ssh -X pi@<Raspberry_Pi_IP>
+      ```
+
+3. Run your Python script:
+    ```bash
+    python3 thermal_camera.py
+    ```
+
+#### Option 3: Use Jupyter Notebook
+
+1. Install Jupyter Notebook on Raspberry Pi:
+    ```bash
+    pip install jupyter
+    ```
+
+2. Run Jupyter Notebook:
+    ```bash
+    jupyter notebook --ip=0.0.0.0 --no-browser
+    ```
+
+3. Access from Your Laptop:
+    - Open a web browser on your laptop and go to `http://<Raspberry_Pi_IP>:8888`.
+
+## Example Output
+
+Here's what the output of the thermal image might look like:
+
+![image](https://github.com/user-attachments/assets/03b91c95-8664-4b2a-aab9-751ba2433311)
+![image](https://github.com/user-attachments/assets/a21749e4-aa6d-452e-88f5-d966921b53fb)
+
+
+## Troubleshooting
+
+### No Module Named Error
+
+Ensure all dependencies are installed. You can use the following command to install all required packages:
+
+```bash
+pip install -r requirements.txt
+ ```
+
+### I2C Not Detected
+
+Verify connections and ensure the I2C interface is enabled in the Raspberry Pi configuration.
+
+### Permissions Error
+
+Run the script with superuser privileges:
+
+```bash
+sudo python3 thermal_camera.py
+ ```
+
+
