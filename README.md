@@ -25,7 +25,8 @@ This project demonstrates how to use a Raspberry Pi 4B and an MLX90640 thermal c
 
 ## Software Requirements
 
-- **Raspberry Pi OS:** Ensure your Raspberry Pi is running the latest version.
+- **Raspberry Pi OS:** Ensure your Raspberry Pi is running the latest version. Follow the [Raspberry Pi OS installation guide](https://www.raspberrypi.com/software/) if you haven't set it up yet. You can also watch this [video tutorial](https://www.youtube.com/watch?v=F5OYpPUJiOw) for a step-by-step guide on installing Raspberry Pi OS.
+
 - **Python 3.x:** Included with Raspberry Pi OS.
 - **Libraries:** `smbus2`, `numpy`, `matplotlib`, `adafruit-circuitpython-mlx90640`
 
@@ -209,7 +210,7 @@ plt.show()
  ```
 Run this script using:
 ```bash
-    RealTimeFeed.py
+RealTimeFeed.py
 ```
 This will show a live feed of the thermal images from the MLX90640 sensor.
 
@@ -225,23 +226,23 @@ Here's what the output of the thermal image might look like:
 
 - ### No Module Named Error
 
-Ensure all dependencies are installed. You can use the following command to install all required packages:
+  Ensure all dependencies are installed. You can use the following command to install all required packages:
 
-```bash
-pip install -r requirements.txt
- ```
+  ```bash
+  pip install -r requirements.txt
+  ```
 
 - ### I2C Not Detected
-
-Verify connections and ensure the I2C interface is enabled in the Raspberry Pi configuration.
-
+    
+  Verify connections and ensure the I2C interface is enabled in the Raspberry Pi configuration.
+    
 - ### Permissions Error
-
-Run the script with superuser privileges:
-
-```bash
-sudo python3 thermal_camera.py
- ```
+    
+  Run the script with superuser privileges:
+    
+  ```bash
+  sudo python3 thermal_camera.py
+   ```
 
 ## Adafruit Library
 
