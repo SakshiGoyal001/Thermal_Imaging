@@ -188,7 +188,7 @@ Here's what the output of the thermal image might look like:
 
 ## Troubleshooting
 
-### No Module Named Error
+-### No Module Named Error
 
 Ensure all dependencies are installed. You can use the following command to install all required packages:
 
@@ -196,11 +196,11 @@ Ensure all dependencies are installed. You can use the following command to inst
 pip install -r requirements.txt
  ```
 
-### I2C Not Detected
+-### I2C Not Detected
 
 Verify connections and ensure the I2C interface is enabled in the Raspberry Pi configuration.
 
-### Permissions Error
+-### Permissions Error
 
 Run the script with superuser privileges:
 
