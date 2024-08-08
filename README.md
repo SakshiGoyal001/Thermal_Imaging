@@ -8,6 +8,7 @@ This project demonstrates how to use a Raspberry Pi 4B and an MLX90640 thermal c
 - Captures thermal images using the MLX90640 sensor.
 - Displays images using Matplotlib.
 - Options to view results via VNC, SSH with X forwarding, or Jupyter Notebook.
+- Real-time thermal image feed visualization.
 
 ## Hardware Requirements
 
@@ -177,6 +178,41 @@ plt.show()
 
 3. Access from Your Laptop:
     - Open a web browser on your laptop and go to `http://<Raspberry_Pi_IP>:8888`.
+
+### Real-Time Thermal Image Feed
+For real-time visualization of the thermal feed, use the following Python script:
+
+```python
+import board
+import busio
+import adafruit_mlx90640
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+
+i2c = busio.I2C(board.SCL, board.SDA, frequency=400000)
+mlx = adafruit_mlx90640.MLX90640(i2c)
+mlx.refresh_rate = adafruit_mlx90640.RefreshRate.REFRESH_2_HZ
+
+fig, ax = plt.subplots()
+img = ax.imshow(np.zeros((24, 32)), cmap='inferno', vmin=20, vmax=40)
+plt.colorbar(img, ax=ax)
+
+def update(frame):
+    frame_data = np.zeros((24*32,))
+    mlx.get_frame(frame_data)
+    thermal_image = frame_data.reshape((24, 32))
+    img.set_data(thermal_image)
+    return [img]
+
+ani = animation.FuncAnimation(fig, update, blit=True, interval=1000)
+plt.show()
+ ```
+Run this script using:
+```bash
+    RealTimeFeed.py
+```
+This will show a live feed of the thermal images from the MLX90640 sensor.
 
 ## Example Output
 
