@@ -118,7 +118,11 @@ plt.show()
  ```
 
 Running the Script
-Locally on Raspberry Pi: Running the script directly on the Raspberry Pi will display the output (thermal image) on the Raspberry Pi’s own screen. If you prefer to see the results remotely, you should follow Step 6.
+```bash
+ImageFeed.py
+```
+
+Running the script directly on the Raspberry Pi will display the output (thermal image) on the Raspberry Pi’s own screen. If you prefer to see the results remotely, you should follow Step 6.
 
 ### Step 6: Display Results on Laptop
 
