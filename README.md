@@ -218,25 +218,17 @@ This project utilizes the [Adafruit CircuitPython MLX90640](https://github.com/a
 - **Documentation:** Adafruit provides comprehensive documentation and support, making it easier to integrate and troubleshoot.
 - **Community Support:** Being widely used, the library benefits from community contributions and bug fixes.
 
-### Alternative Approaches
-
-### Alternative Approaches
-
-While the Adafruit library is a convenient choice, other methods are available for interfacing with the MLX90640 sensor:
 
 ### Alternative Approaches
 
 While the Adafruit library is a convenient choice, other methods are available for interfacing with the MLX90640 sensor:
 
 - **Direct I2C Communication:** You can use Python's `smbus2` library to handle direct I2C communication with the MLX90640. This method requires manual management of the I2C protocol and data processing.
-  - [smbus2 on GitHub](https://github.com/kplindegaard/smbus2)
+  [smbus2 on GitHub](https://github.com/kplindegaard/smbus2)
 
-- **Other Python Libraries:** Several alternative Python libraries can interface with the MLX90640. These libraries may offer different features or methods for accessing thermal data, but they might not be well-documented and are not so widely used.
-  - [MLX90640 Python Library by @urish](https://github.com/urish/MLX90640)
+- **Other Python Libraries:** Other third-party libraries and drivers may be available, depending on your programming language and platform. You might need to adapt the code to fit these libraries' APIs and documentation.
 
-- **Arduino Libraries:** For those using Arduino, there are libraries specifically designed for the MLX90640 sensor. These libraries provide functions for interacting with the sensor and might be suitable for embedded applications.
-  - [MLX90640 Arduino Library](https://github.com/adafruit/Adafruit-MLX90640-Library)
-
+If you prefer exploring alternative methods, you can look for other MLX90640 libraries or consult the sensor's datasheet for direct communication details.
 
 
 ## Additional Resources
