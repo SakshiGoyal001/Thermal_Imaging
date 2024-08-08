@@ -1,7 +1,7 @@
 # Thermal Imaging
 
 
-This project demonstrates how to use a Raspberry Pi 4B and an MLX90640 thermal camera with 110° field of view (FOV) to capture and display thermal images. The thermal images can be viewed directly on the Raspberry Pi or remotely on a laptop.
+This project demonstrates how to use a Raspberry Pi 4B and an MLX90640 thermal camera with 110° field of view to capture and display thermal images. The thermal images can be viewed directly on the Raspberry Pi or remotely on a laptop.
 
 ## Features
 
@@ -14,7 +14,7 @@ This project demonstrates how to use a Raspberry Pi 4B and an MLX90640 thermal c
 
 - **Raspberry Pi 4B (4GB)**
 - **MLX90640 Thermal Camera with 110° FOV**
-  I purchased the MLX90640 thermal camera from [Evelta](https://evelta.com/7semi-mlx90640-ir-thermal-camera-breakout-110-fov-i2c/?utm_campaign=PMax_7Semi_Brand&utm_source=google&utm_medium=cpc&utm_matchtype=&utm_term=&adgroupid=&gc_id=21448253640&h_ad_id=&gad_source=4&gclid=CjwKCAjw2dG1BhB4EiwA998cqCfoiC6q-wXeibWAZKEZxu1VLhOu--OBwlfJAsDxMgRj7eU0X4_2BBoCkMoQAvD_BwE).
+  (I purchased the camera from [Evelta](https://evelta.com/7semi-mlx90640-ir-thermal-camera-breakout-110-fov-i2c/?utm_campaign=PMax_7Semi_Brand&utm_source=google&utm_medium=cpc&utm_matchtype=&utm_term=&adgroupid=&gc_id=21448253640&h_ad_id=&gad_source=4&gclid=CjwKCAjw2dG1BhB4EiwA998cqCfoiC6q-wXeibWAZKEZxu1VLhOu--OBwlfJAsDxMgRj7eU0X4_2BBoCkMoQAvD_BwE)).
 - **Connections:**
   - SDA to GPIO2 (pin 3)
   - SCL to GPIO3 (pin 5)
